@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acne Detection AI</title>
+    <link rel="stylesheet" href="css/styles_light.css">
+    <meta name="description" content="Advanced AI-powered acne detection and classification system">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Light theme applied -->
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- TensorFlow.js and Teachable Machine libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="app-header fade-in">
+            <header>
+                <div class="header-badge"><i class="fas fa-brain"></i> AI-Powered</div>
+                <h1>Acne Detection System</h1>
+                <p>Advanced dermatological analysis using machine learning to detect and classify acne conditions in real-time.</p>
+            </header>
+            <button id="theme-toggle" onclick="toggleTheme()" class="theme-toggle"><i class="fas fa-moon"></i></button>
+        </div>
+        
+        <div class="controls-panel fade-in">
+            <div class="controls">
+                <button type="button" onclick="handleStartClick()" class="start-button pulse"><i class="fas fa-camera"></i> Analyze with Camera</button>
+                <div class="upload-container">
+                    <label for="imageUpload" class="upload-button"><i class="fas fa-image"></i> Upload Skin Image</label>
+                    <input type="file" id="imageUpload" accept="image/*" onchange="handleImageUpload(event)">
+                </div>
+            </div>
+        </div>
+
+        <div class="app-content">
+            <div class="main-content fade-in-delayed">
+                <div class="image-capture-panel">
+                    <div class="image-panel-header">
+                        <div class="image-panel-title"><i class="fas fa-camera-retro"></i> Image Capture</div>
+                    </div>
+                    <div id="webcam-container">
+                        <div class="placeholder-text"><i class="fas fa-camera-retro"></i><br>Position your skin in view for analysis</div>
+                    </div>
+                    <div id="image-container">
+                        <div class="placeholder-text"><i class="fas fa-file-medical-alt"></i><br>Upload a clear image of the affected area</div>
+                    </div>
+                    
+                    <!-- Loading container -->
+                    <div class="loader-container">
+                        <div class="loader">
+                            <div class="loader-spinner"></div>
+                            <div class="loader-text">Analyzing...</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="analysis-panel">
+                    <div class="analysis-panel-header">
+                        <div class="analysis-panel-title"><i class="fas fa-chart-bar"></i> Dermatological Assessment</div>
+                    </div>
+                    <div class="analysis-panel-content">
+                        <div id="label-container">
+                            <div class="placeholder-text"><i class="fas fa-microscope"></i><br>Detection results will appear here after analysis</div>
+                        </div>
+                        
+                        <div id="treatment-container" style="display: none;">
+                            <div class="treatment-header">
+                                <i class="fas fa-medkit"></i> Treatment Recommendations
+                            </div>
+                            <div id="treatment-content" class="treatment-content">
+                                <!-- Treatment recommendations will appear here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
